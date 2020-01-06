@@ -1,6 +1,4 @@
 import React from 'react';
-import 'rbx/index.css';
-import { Button, Container, Title } from 'rbx';
 
 
 const schedule = {
