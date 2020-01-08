@@ -76,8 +76,8 @@ const App = () => {
 
 const Banner = ({ user, title }) => (
   <React.Fragment>
-    { user ? <Welcome user={ user } /> : <SignIn /> }
-    <Title>{ title || '[loading...]' }</Title>
+    {user ? <Welcome user={user} /> : <SignIn />}
+    <Title>{title || "[loading...]"}</Title>
   </React.Fragment>
 );
 
@@ -93,10 +93,7 @@ const Welcome = ({ user }) => (
 );
 
 const SignIn = () => (
-  <StyledFirebaseAuth
-    uiConfig={uiConfig}
-    firebaseAuth={firebase.auth()}
-  />
+  <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 );
 
 const CourseList = ({ courses, user }) => {
@@ -153,14 +150,14 @@ const getCourseTerm = course => terms[course.id.charAt(0)];
 
 const getCourseNumber = course => course.id.slice(1, 4);
 
-
 const Course = ({ course, state, user }) => (
-  <Button color={ buttonColor(state.selected.includes(course)) }
-    onClick={ () => state.toggle(course) }
-    onDoubleClick={ user ? () => moveCourse(course) : null }
-    disabled={ hasConflict(course, state.selected) }
-    >
-    { getCourseTerm(course) } CS { getCourseNumber(course) }: { course.title }
+  <Button
+    color={buttonColor(state.selected.includes(course))}
+    onClick={() => state.toggle(course)}
+    onDoubleClick={user ? () => moveCourse(course) : null}
+    disabled={hasConflict(course, state.selected)}
+  >
+    {getCourseTerm(course)} CS {getCourseNumber(course)}: {course.title}
   </Button>
 );
 
